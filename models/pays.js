@@ -1,9 +1,9 @@
 const { mongoose } = require('../db/connectdb.js');
 
-const Biere = mongoose.model('Biere', {
+const Pays = mongoose.model('Pays', {
   
 });
 
-module.exports = { Biere };
+module.exports = { Pays };
 
 

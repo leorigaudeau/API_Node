@@ -1,23 +1,17 @@
 const { mongoose } = require('../db/connectdb.js');
+const Schema = mongoose.Schema;
+autoIncrement.initialize(mongoose);
 
-const Biere = mongoose.model('Biere', {
+
+const biereSchema = new Schema({
     nom: {
         type: String,
         required: true
-    },
-    Alcool: {
-        type: String
-    },
-    Brasseur: [{
-        type: Schema.Types.ObjectId,
-        ref: 'brasseur'
-    }],
-    Origine: [{
-        type: Schema.Types.ObjectId,
-        ref: 'pays'
-    }],
+    }
 });
 
+
+biereSchema.plugin(autoIncrement.plugin, 'Biere');
+var Biere = connection.model('Biere', bookSchema);
+
 module.exports = { Biere };
-
-
