@@ -9,7 +9,16 @@ const app = express();
 
 app.use(bodyParser.json());
 
-
+app.post('/biere', (req, res) => {
+  const biere = new Biere({
+      nom: "Jupiler"
+  });
+  biere.save().then(biere => {
+      res.send(biere);
+  }, e => {
+      res.status(500).send(e);
+  });
+});
 
 if (Number.isInteger()&& !isNaN(inputPort)) {
   app.listen(argv.port);
