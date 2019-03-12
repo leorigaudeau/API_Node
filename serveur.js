@@ -9,9 +9,10 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.post('/biere', (req, res) => {
-  const biere = new Biere({
-      nom: "Jupiler"
+app.post('/brasseur', (req, res) => {
+  const biere = new Brasseur({
+      nom: req.body.nom,
+      pays: req.body.pays
   });
   biere.save().then(biere => {
       res.send(biere);

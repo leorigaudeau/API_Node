@@ -2,17 +2,15 @@ const { mongoose } = require('../db/connectdb.js');
 const {Brasseur} = require('./brasseurs');
 const { pays } = require('./pays');
 const autoIncrement = require('mongoose-auto-increment');
-const Schema = mongoose.Schema;
 autoIncrement.initialize(mongoose);
 
 
-const biereSchema = new Schema({
-    Nom: {
+const biereSchema = new mongoose.Schema({
+    nom: {
         type: String,
         required: true
     },
-    Brasseur,
-    pays
+    
 });
 
 
