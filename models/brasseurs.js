@@ -1,15 +1,20 @@
 const { mongoose } = require('../db/connectdb.js');
+const autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(mongoose);
 
-const Brasseur = mongoose.model('Brasseur', {
-    Nom: {
+const brasseur = new mongoose.Schema({
+    nom: {
         type: String,
         required: true
     },
-    Pays: {
+    pays: {
         type: String,
         required: true
     }
 });
+
+brasseur.plugin(autoIncrement.plugin, 'Brasseurs');
+var Brasseur = mongoose.model('Brasseurs', brasseur);
 
 module.exports = { Brasseur };
 
