@@ -10,7 +10,21 @@ const brasseur = new mongoose.Schema({
     pays: {
         type: String,
         required: true
-    }
+    },
+    bieres:[{
+        _id:{
+            type:Number
+        },
+        idbiere:{
+            type:Number
+        },
+        nom:{
+            type:String
+        },
+        typeBiere:{
+            type:String
+        }
+    }]
 });
 
 brasseur.plugin(autoIncrement.plugin, 'Brasseurs');
