@@ -1,18 +1,18 @@
-const { Biere } = require('../../models/typeBiere.js');
+const { TypeBiere } = require('../../models/typeBiere.js');
 
 const getTypeBiere = (req,res) => {
-    Biere.find().then((biere)=>{
-        res.send(biere);
+    TypeBiere.find().then((typeBiere)=>{
+        res.send(typeBiere);
     },e=>res.status(500).send(e))
 };
 
 const getTypeBiereById = (req,res) => {
     const {id} = req.params;
-    Biere.findById(id).then((biere)=>{
-        if (!biere) {
+    TypeBiere.findById(id).then((typeBiere)=>{
+        if (!typeBiere) {
             res.status(404).send();
         }
-        res.send(biere);
+        res.send(typeBiere);
     },e=>res.status(500).send(e))
 };
 
