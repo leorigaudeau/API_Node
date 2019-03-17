@@ -55,6 +55,7 @@ app.put('/typebiere/:id',(req,res)=>{
 app.delete('/biere/:id',(req,res)=>{
     delBiere(req,res);
 });
+
 // Type Bieres routing---------------------------------------------------------------------------------------------
 app.post('/typebiere', (req, res) => {
     postTypeBiere(req,res);
