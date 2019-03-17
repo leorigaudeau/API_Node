@@ -17,6 +17,7 @@ const{ delBiere} = require("./fonctionsRecup/BiereFcts/del");
 const {postTypeBiere} = require("./fonctionsRecup/TypeFcts/post");
 const {putTypeBiere} = require("./fonctionsRecup/TypeFcts/put");
 const{ delTypeBiere} = require("./fonctionsRecup/TypeFcts/del");
+const { getTypeBiere,getTypeBiereById} =  require("./fonctionsRecup/BiereFcts/get");
 
 
 //Routing-------------------------------------------------------------------------------------------------------
@@ -64,6 +65,12 @@ app.put('/brasseur/:id',(req,res)=>{
 });
 app.delete('/typebiere/:id',(req,res)=>{
     delTypeBiere(req,res);
+});
+app.get('/typebiere',(req,res)=>{
+    getTypeBiere(req,res);
+});
+app.get('/typebiere/:id',(req,res)=>{
+    getTypeBiereById(req,res);
 });
 
 
