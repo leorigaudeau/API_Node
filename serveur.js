@@ -49,7 +49,7 @@ app.get('/biere',(req,res)=>{
 app.get('/biere/:id',(req,res)=>{
     getBiereById(req,res);
 });
-app.put('/typebiere/:id',(req,res)=>{
+app.put('/biere/:id',(req,res)=>{
     putBiere(req,res);
 });
 app.delete('/biere/:id',(req,res)=>{
