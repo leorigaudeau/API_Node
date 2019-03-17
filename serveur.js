@@ -1,7 +1,8 @@
-const argv = require('yargs')
+const argv = require('yargs').argv
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
+const motDePasse = "P@ssw0rd";
 // Brasseur require---------------------------------------------------------------------------------------------
 const { postBrasseur} =  require("./fonctionsRecup/BrasseursFcts/post");
 const { getBrasseur,getBrasseurById} =  require("./fonctionsRecup/BrasseursFcts/get");
@@ -66,10 +67,18 @@ app.delete('/typebiere/:id',(req,res)=>{
 });
 
 
-if (Number.isInteger() && !isNaN(inputPort)) {
-    app.listen(argv.port);
-    console.log(`Nous disposons votre serveur sur le port:${argv.port}`);
+if ( argv.password!= null && argv.password == motDePasse) {
+    console.log("Authentification réussit");
+    if (!isNaN(argv.port)) {
+        app.listen(argv.port);
+        console.log(`Nous disposons votre serveur sur le port:${argv.port}`);
+    } else {
+        console.log('Nous disposons votre serveur sur le port:3000');
+        app.listen(3000);
+    };
 } else {
-    console.log('Nous disposons votre serveur sur le port:3000');
-    app.listen(3000);
+    console.log("L'authentification à échoué");
+    console.log("Veillez a inscrire de la manière suivante le bon mot de passe:");
+    console.log("serveur.js --password=XXXXXXXXXXX");
+    process.exit();
 };
